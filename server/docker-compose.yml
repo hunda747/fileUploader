@@ -1,0 +1,39 @@
+version: '3'
+services:
+  app:
+    container_name: file-upload
+    restart: always
+    build: .
+    ports:
+    - '5000:5000'
+    environment:
+      - DATABASE=file_uploader
+      # - DATABASE_PASSWORD=
+      # - DATABASE_USER=root
+      # - DATABASE_HOST=localhost
+      - MYSQL_ROOT_PASSWORD
+      - MYSQL_ALLOW_EMPTY_PASSWORD
+      - MYSQL_RANDOM_ROOT_PASSWORD
+  mysql:
+    image: 'mysql:5.7'
+    environment:
+      # - MYSQL_USER=root
+      # - MYSQL_PASSWORD=password
+      # - MYSQL_ROOT_PASSWORD=password
+      # - MYSQL_DATABASE=school
+      # - MYSQL_ROOT_PASSWORD
+      # - MYSQL_ALLOW_EMPTY_PASSWORD
+      # - MYSQL_RANDOM_ROOT_PASSWORD
+      - DATABASE = file_uploader
+      - DATABASE_PASSWORD = ''
+      - DATABASE_USER = root
+      - DATABASE_HOST = localhost
+    ports:
+      - '5000:5000'
+    volumes:
+      - ./db:/bitnami/mysql/data
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin:4.7
+    ports: 
+      - "30002:80"
+    container_name: moe-phpmyadmin-app

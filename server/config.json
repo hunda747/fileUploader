@@ -1,0 +1,26 @@
+{
+  "development": {
+    "username": "root",
+    "password": "",
+    "database": "file_uploader",
+    "dialect": "mysql",
+    "DATABASE" : "file_uploader",
+    "DATABASE_PASSWORD" : "",
+    "DATABASE_USER" : "root",
+    "DATABASE_HOST" : "localhost"
+  },
+  "test": {
+    "username": "root",
+    "password": null,
+    "database": "database_test",
+    "host": "127.0.0.1:5000",
+    "dialect": "mysql"
+  },
+  "production": {
+    "username": "root",
+    "password": null,
+    "database": "database_production",
+    "host": "127.0.0.1:5000",
+    "dialect": "mysql"
+  }
+}
