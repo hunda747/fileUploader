@@ -11,6 +11,10 @@ const FileUpload = ({ refresh }) => {
   const [uploadPercentage, setUploadPercentage] = useState(0);
 
   const onChange = (e) => {
+    if(e.target.files[0].size > 20480){
+      alert("File is too big!");
+      this.value = "";
+   };
     setFile(e.target.files[0]);
     setFilename(e.target.files[0].name);
   };
